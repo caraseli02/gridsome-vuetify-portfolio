@@ -13,9 +13,18 @@
       class="setBG"
       :class="$vuetify.breakpoint.xsOnly? 'order-1' : 'order-2 d-flex justify-end'"
     >
-      <g-image
-        :src="getImgUrl()"
-        contain
+      <g-image v-if="$vuetify.breakpoint.smAndUp"
+        src="@/assets/img/profile_945.png"
+        fit="cover"
+        width="550"
+        height="550"
+        alt="Vlad Caraseli"
+      />
+      <g-image v-if="$vuetify.breakpoint.xsOnly"
+        src="@/assets/img/profile_945.png"
+        fit="cover"
+        width="300"
+        height="300"
         alt="Vlad Caraseli"
       />
     </div>
@@ -75,7 +84,7 @@
         })
       },
       getImgUrl () {
-        return require('@/assets/img/' + this.myFilename)
+        return require('!!assets-loader!@/assets/img/' + this.myFilename)
       },
     },
   }
