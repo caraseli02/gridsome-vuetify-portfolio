@@ -17,6 +17,7 @@
         class="mb-12"
         height="200px"
         contain
+        quality="75"
       />
       <v-btn
         color="primary"
@@ -40,6 +41,7 @@
         class="mb-12"
         height="200px"
         contain
+        quality="75"
       />
       <v-btn
         color="primary"
@@ -63,6 +65,7 @@
         class="mb-12"
         height="200px"
         contain
+        quality="75"
       />
       <v-btn
         color="primary"
@@ -82,6 +85,7 @@
         class="mb-12"
         height="200px"
         contain
+        quality="75"
       />
       <v-btn
         color="primary"

@@ -6,10 +6,11 @@
       class="ml-2 mb-4 card pa-2"
       max-width="344"
     >
-      <v-img
+      <g-image
         :src="getImgUrl(project.img)"
         :alt="project.alt"
         height="200"
+        quality="75"
         cover
       />
 

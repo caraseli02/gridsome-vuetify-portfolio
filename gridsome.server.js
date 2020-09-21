@@ -6,6 +6,8 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 const nodeExternals = require('webpack-node-externals')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+    .BundleAnalyzerPlugin
 
 module.exports = function (api) {
     api.loadSource(({addCollection}) => {
@@ -25,6 +27,12 @@ module.exports = function (api) {
             ])
         }
     })
+
+    chainWebpack: config => {
+        config
+            .plugin('BundleAnalyzerPlugin')
+            .use(BundleAnalyzerPlugin, [{analyzerMode: 'static'}])
+    }
 
     api.loadSource(store => {
         // Use the Data store API here: https://gridsome.org/docs/data-store-api
