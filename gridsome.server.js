@@ -28,12 +28,6 @@ module.exports = function (api) {
         }
     })
 
-    chainWebpack: config => {
-        config
-            .plugin('BundleAnalyzerPlugin')
-            .use(BundleAnalyzerPlugin, [{analyzerMode: 'static'}])
-    }
-
     api.loadSource(store => {
         // Use the Data store API here: https://gridsome.org/docs/data-store-api
     })

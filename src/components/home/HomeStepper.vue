@@ -86,6 +86,7 @@
         height="200px"
         contain
         quality="75"
+
       />
       <v-btn
         color="primary"
