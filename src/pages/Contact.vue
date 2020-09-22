@@ -88,7 +88,7 @@
             v-model="valid"
             lazy-validation
         >
-          <input type="hidden" name="form-name" value="ask-question"/>
+          <input type="hidden" name="form-name" value="contact"/>
           <v-text-field
               v-model="formData.name"
               :rules="nameRules"
