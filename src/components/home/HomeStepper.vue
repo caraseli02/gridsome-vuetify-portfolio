@@ -13,7 +13,7 @@
 
     <v-stepper-content step="1">
       <g-image
-        src="@/assets/img/thinking.jpg"
+        src="@/assets/img/thinking.webp"
         class="mb-12"
         height="200px"
         contain
@@ -37,7 +37,7 @@
 
     <v-stepper-content step="2">
       <g-image
-        src="@/assets/img/design.jpg"
+        src="@/assets/img/design.webp"
         class="mb-12"
         height="200px"
         contain
@@ -61,7 +61,7 @@
 
     <v-stepper-content step="3">
       <g-image
-        src="@/assets/img/development.jpg"
+        src="@/assets/img/development.webp"
         class="mb-12"
         height="200px"
         contain
@@ -81,7 +81,7 @@
     </v-stepper-step>
     <v-stepper-content step="4">
       <g-image
-        src="@/assets/img/deploy.jpg"
+        src="@/assets/img/deploy.webp"
         class="mb-12"
         height="200px"
         contain

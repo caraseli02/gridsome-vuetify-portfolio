@@ -1,7 +1,7 @@
 <template class="">
   <v-sheet
       height="98vh"
-      class="px-6 d-flex flex-column justify-space-around justify-sm-space-between pt-sm-16 pt-8 pb-sm-6 pb-xl-0"
+      class="px-6 d-flex flex-column justify-space-around justify-sm-space-between pt-sm-16 pt-8 pb-sm-6 pb-md-0"
   >
     <div class="setBorderLT order-0">
       <p class="pt-4 d-flex text-right justify-end pt-4 text--primary">
@@ -10,11 +10,11 @@
       <span class="d-flex justify-end font-italic text-body-2">" John Johnson "</span>
     </div>
     <div
-        class="setBG"
+        class="setBG d-flex justify-center"
         :class="$vuetify.breakpoint.xsOnly? 'order-1' : 'order-2 d-flex justify-end'"
     >
       <g-image v-if="$vuetify.breakpoint.smAndUp"
-               src="@/assets/img/profile_945.png"
+               src="@/assets/img/profile_945.webp"
                fit="cover"
                width="550"
                height="550"
@@ -22,7 +22,7 @@
                quality="75"
       />
       <g-image v-if="$vuetify.breakpoint.xsOnly"
-               src="@/assets/img/profile_945.png"
+               src="@/assets/img/profile_945.webp"
                fit="cover"
                width="300"
                height="300"

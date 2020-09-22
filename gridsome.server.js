@@ -5,9 +5,7 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-const nodeExternals = require('webpack-node-externals')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-    .BundleAnalyzerPlugin
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
 
 module.exports = function (api) {
     api.loadSource(({addCollection}) => {
@@ -18,15 +16,9 @@ module.exports = function (api) {
         // Use the Pages API here: https://gridsome.org/docs/pages-api/
     })
 
-    api.chainWebpack((config, {isServer}) => {
-        if (isServer) {
-            config.externals([
-                nodeExternals({
-                    allowlist: [/^vuetify/]
-                })
-            ])
-        }
-    })
+    api.chainWebpack((config, { isServer }) => {
+        config.plugin('vuetify-loader').use(VuetifyLoaderPlugin);
+    });
 
     api.loadSource(store => {
         // Use the Data store API here: https://gridsome.org/docs/data-store-api
