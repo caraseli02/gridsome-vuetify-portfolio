@@ -1,6 +1,6 @@
 <template class="">
   <v-sheet
-      height="98vh"
+      height="100vh"
       class="px-6 d-flex flex-column justify-space-around justify-sm-space-between pt-sm-16 pt-8 pb-sm-6 pb-md-0"
   >
     <div class="setBorderLT order-0">
@@ -10,7 +10,7 @@
       <span class="d-flex justify-end font-italic text-body-2">" John Johnson "</span>
     </div>
     <div
-        class="setBG d-flex justify-center"
+        class="setBG d-flex justify-end"
         :class="$vuetify.breakpoint.xsOnly? 'order-1' : 'order-2 d-flex justify-end'"
     >
       <g-image v-if="$vuetify.breakpoint.smAndUp"
