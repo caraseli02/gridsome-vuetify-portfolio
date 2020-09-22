@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "gridsome": "^0.7.0",
+    "gridsome-plugin-i18n": "^1.6.0",
     "gsap": "^3.5.1",
     "vuetify": "^2.3.10"
   },

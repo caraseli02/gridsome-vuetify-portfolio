@@ -80,13 +80,17 @@
       <div class="bgImg">
         <h6 class="display-1 mb-6 font-weight-bold d-flex justify-center">Get in touch</h6>
         <v-form
+            v-on:submit.prevent="handleSubmit"
             name="contact" method="POST" data-netlify="true"
+            data-netlify-honeypot="bot-field"
             ref="form"
+            action="/success/"
             v-model="valid"
             lazy-validation
         >
+          <input type="hidden" name="form-name" value="ask-question"/>
           <v-text-field
-              v-model="name"
+              v-model="formData.name"
               :rules="nameRules"
               label="Name"
               filled
@@ -94,7 +98,7 @@
           ></v-text-field>
 
           <v-text-field
-              v-model="email"
+              v-model="formData.email"
               :rules="emailRules"
               label="E-mail"
               required
@@ -103,16 +107,16 @@
           ></v-text-field>
 
           <v-text-field
-              v-model="subject"
+              v-model="formData.subject"
               label="Subject"
               filled
               rounded
           ></v-text-field>
 
           <v-textarea
-              v-model="select"
+              v-model="formData.message"
               :items="items"
-              :rules="[v => !!v || 'Item is required']"
+              :rules="[v => !!v || 'Message is required']"
               label="Message"
               required
               filled
@@ -123,7 +127,6 @@
                 :disabled="!valid"
                 color="success"
                 class="mr-4 mb-4 mb-md-0"
-                @click="validate"
                 type="submit"
             >
               Send
@@ -144,6 +147,7 @@
             >
               Reset Validation
             </v-btn>
+            <div class="hidden" data-netlify-recaptcha="true"></div>
           </div>
         </v-form>
       </div>
@@ -154,19 +158,22 @@
 <script>
 export default {
   name: "Contact",
-  data: () => ({
-    valid: true,
-    name: '',
-    nameRules: [
-      v => !!v || 'Name is required',
-      v => (v && v.length <= 10) || 'Name must be less than 10 characters',
-    ],
-    email: '',
-    emailRules: [
-      v => !!v || 'E-mail is required',
-      v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-    ],
-  }),
+  data() {
+    return {
+      formData: {},
+      valid: true,
+      name: '',
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+      ],
+      email: '',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+      ],
+    }
+  },
 
   methods: {
     validate() {
@@ -178,6 +185,23 @@ export default {
     resetValidation() {
       this.$refs.form.resetValidation()
     },
+    encode(data) {
+      return Object.keys(data)
+          .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+          .join('&')
+    },
+    handleSubmit(e) {
+      fetch('/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: this.encode({
+          'form-name': e.target.getAttribute('name'),
+          ...this.formData,
+        }),
+      })
+          .then(() => this.$router.push('/success'))
+          .catch(error => alert(error))
+    }
   },
 }
 </script>
