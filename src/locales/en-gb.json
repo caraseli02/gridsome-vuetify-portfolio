@@ -1,3 +1,6 @@
 {
-  "navBar" : ["HOME", "CONTACT"]
+  "navBar" : ["HOME", "CONTACT"],
+  "textIntro" : ["Hi ," , "my name is Vlad.", "I’m programmer, developer and designer.",
+    "My passion is to build modern and fast by default web apps."],
+  "projects": "my projects"
 }

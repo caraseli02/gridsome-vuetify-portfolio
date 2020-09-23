@@ -35,29 +35,28 @@
           class="font-weight-bold"
           :class="$vuetify.breakpoint.smAndDown? 'display-1' : 'display-2'"
       >
-        <span class="Color1">Hi,</span>
-        my name is Vlad.
+        <span class="Color1">{{ $t('textIntro[0]') }}</span>
+        {{ $t('textIntro[1]') }}
       </h4>
       <div
           class="text-body-1 d-none d-sm-block"
           :style="$vuetify.breakpoint.xsOnly ? '' : 'width: 50%;'"
       >
         <p class="mt-2">
-          I’m programmer, developer and designer.
+          {{ $t('textIntro[2]') }}
         </p>
         <p>
-          My passion is to build modern and fast by default web apps.
+          {{ $t('textIntro[3]') }}
         </p>
       </div>
     </div>
     <v-btn
         class="setZindex order-3 d-sm-none"
-
         outlined
         @click="$vuetify.goTo('#homeProjects')"
     >
-      <v-icon>mdi-chevron-double-down</v-icon>
-      checkup my projects
+      <v-icon>&#8595;</v-icon>
+      {{ $t('projects') }}
     </v-btn>
   </v-sheet>
 </template>

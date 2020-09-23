@@ -7,7 +7,7 @@
       <v-toolbar-title>
         <v-btn
             icon
-            to="/home"
+            to="/"
         >
           <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -80,8 +80,8 @@
       <v-spacer/>
       <v-toolbar-items class="">
         <v-btn
-            v-if="$route.path !== '/home'"
-            to="/"
+            v-if="$route.path !== '/'"
+            :to="$route.path.slice(0, 3)"
             text
             class="body-1"
         >
@@ -89,7 +89,7 @@
         </v-btn>
         <v-btn
             text
-            to="/contact"
+            :to="contact"
             class="body-1"
         >
           {{ $t('navBar[1]') }}
@@ -115,8 +115,13 @@ export default {
         {title: 'Contact', link: 'contact', icon: 'phone'},
         {title: 'LoginOld.vue', link: 'login', icon: 'login'},
       ],
+      contact : 'contact',
+      home:  this.$i18n.locale.toString().slice(0, 0)
     }
   },
+  created() {
+    console.log(this.$i18n.locale.toString().slice(0, 2))
+  }
 }
 </script>
 

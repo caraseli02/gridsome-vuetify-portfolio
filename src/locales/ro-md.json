@@ -1,3 +1,6 @@
 {
-  "navBar" : ["ACASĂ", "CONTACT"]
+  "navBar" : ["ACASĂ", "CONTACT"],
+  "textIntro" : ["Salut ," , "Numele meu este Vlad.", "Sunt programador, desaroiador si desiniador",
+    "Pasiunea mea este sa creez web aplicații, moderne si rapide"],
+  "projects": "proiectele mele"
 }

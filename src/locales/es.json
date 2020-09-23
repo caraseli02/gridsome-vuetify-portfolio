@@ -1,3 +1,6 @@
 {
-  "navBar" : ["INICIO", "CONTACTAR"]
+  "navBar" : ["INICIO", "CONTACTAR"],
+  "textIntro" : ["Hola ," ,"Mi nombre es Vlad.", "Soy programador, desarrollador y diseñador",
+    "Mi pasión es crear aplicaciones web, modernas y rápidas"],
+  "projects": "Mis proyectos"
 }
