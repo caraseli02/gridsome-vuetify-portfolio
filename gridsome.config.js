@@ -6,7 +6,35 @@
 
 module.exports = {
     siteName: 'Gridsome',
-    plugins: [],
+    plugins: [
+        {
+            use: "gridsome-plugin-i18n",
+            options: {
+                locales: [ // locales list
+                    'es',
+                    'ru',
+                    'ro-md',
+                    'en-gb'
+                ],
+                pathAliases: { // path segment alias for each locales
+                    'ru': 'ru',
+                    'es': 'es',
+                    'ro-md': 'ro',
+                    'en-gb': 'en'
+                },
+                fallbackLocale: 'en-gb', // fallback language
+                defaultLocale: 'en-gb', // default language
+                enablePathRewrite: true, // rewrite path with locale prefix, default: true
+                rewriteDefaultLanguage: true, // rewrite default locale, default: true
+                messages: {
+                    'es': require('./src/locales/es.json'), // Messages files
+                    'ru': require('./src/locales/ru.json'),
+                    'ro-md': require('./src/locales/ro-md.json'),
+                    'en-gb': require('./src/locales/en-gb.json'),
+                }
+            }
+        }
+    ],
     chainWebpack: config => {
         config.resolve.alias.set('@img', '@/assets/img')
     },

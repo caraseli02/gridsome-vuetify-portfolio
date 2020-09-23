@@ -160,7 +160,12 @@ export default {
   name: "Contact",
   data() {
     return {
-      formData: {},
+      formData: {
+        name : '',
+        email: '',
+        message: '',
+        subject: ''
+      },
       valid: true,
       name: '',
       nameRules: [

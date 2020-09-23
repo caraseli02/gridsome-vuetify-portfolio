@@ -83,26 +83,31 @@
             v-if="$route.path !== '/home'"
             to="/"
             text
+            class="body-1"
         >
-          Home
+          {{ $t('navBar[0]') }}
         </v-btn>
         <v-btn
             text
             to="/contact"
+            class="body-1"
         >
-          Contact
+          {{ $t('navBar[1]') }}
         </v-btn>
         <!--<v-btn to="/login" text>
           <v-icon left>login</v-icon>
           login
         </v-btn>-->
+        <LocaleSwitcher/>
       </v-toolbar-items>
     </v-app-bar>
   </div>
 </template>
 
 <script>
+import LocaleSwitcher from "./LocaleSwitcher";
 export default {
+  components: {LocaleSwitcher},
   data() {
     return {
       items: [
