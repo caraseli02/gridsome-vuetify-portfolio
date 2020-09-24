@@ -24,18 +24,16 @@
           class="d-flex justify-center flex-column"
         >
           <h4 class="mb-4">
-            More about me
+            {{ $t('AboutMe[0]') }}
           </h4>
           <br>
           <p>
-            I enjoy to build new projects, and study new awesome technologies.<br> A lot of my free time is dedicate
-            for
-            studying and practicing.
+            {{ $t('AboutMe[1]') }}<br> {{ $t('AboutMe[2]') }}
           </p>
-          <p>I'm open to discover new things. <br>And my interest is to find a great team & projects.</p>
+          <p>{{ $t('AboutMe[3]') }} <br>{{ $t('AboutMe[4]') }}</p>
           <br>
           <h4 class="my-4">
-            Looking For New Opportunities like
+            {{ $t('Opportunities') }}
           </h4>
           <p>Fullstack developer with focus on<br> Python(Flask, FastAPI) + Vue</p>
           <p>Fullstack developer Python</p>

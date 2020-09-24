@@ -2,7 +2,7 @@
   <div>
     <v-app-bar
         class="gradient"
-        absolute
+        fixed
     >
       <v-toolbar-title>
         <v-btn

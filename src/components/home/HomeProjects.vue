@@ -16,7 +16,7 @@
       <v-row class="d-flex justify-center ">
         <article class="flex-fill py-12">
           <h4 class="display-1 text-center d-flex justify-center mb-8">
-            Recent Projects
+            {{ $t('projects') }}
           </h4>
           <HomeProjectsCard/>
           <div class="d-flex d-lg-none justify-center align-center">

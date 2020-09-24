@@ -56,7 +56,7 @@
         @click="$vuetify.goTo('#homeProjects')"
     >
       <v-icon>&#8595;</v-icon>
-      {{ $t('projects') }}
+      {{ $t('projectsBtn') }}
     </v-btn>
   </v-sheet>
 </template>

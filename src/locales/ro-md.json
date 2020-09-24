@@ -2,5 +2,18 @@
   "navBar" : ["ACASĂ", "CONTACT"],
   "textIntro" : ["Salut ," , "Numele meu este Vlad.", "Sunt programador, desaroiador si desiniador",
     "Pasiunea mea este sa creez web aplicații, moderne si rapide"],
-  "projects": "proiectele mele"
+  "projectsBtn": "proiectele mele",
+  "projects" : "Proiecte Recente",
+  "apimosaText" : "Site-ul companiei de pintori",
+  "DsText" : "Blog modern despre aspect, modă și stil",
+  "barberText" : "Frizerie cu magazin online",
+  "AboutMe": [
+    "Mai multe despre mine",
+    "Îmi place să construiesc proiecte noi și să studiez noi tehnologii minunate.",
+    "O mare parte din timpul meu liber este dedicat studierii și practicării.",
+    "Sunt deschis să descopăr lucruri noi.",
+    "Și interesul meu este să găsesc o echipă și proiecte grozave."
+
+  ],
+  "Opportunities": "Caut noi oportunități precum:"
 }

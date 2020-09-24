@@ -2,5 +2,17 @@
   "navBar" : ["INICIO", "CONTACTAR"],
   "textIntro" : ["Hola ," ,"Mi nombre es Vlad.", "Soy programador, desarrollador y diseñador",
     "Mi pasión es crear aplicaciones web, modernas y rápidas"],
-  "projects": "Mis proyectos"
+  "projectsBtn": "Mis proyectos",
+  "projects" : "Proyectos Recientes",
+  "apimosaText" : "Pagina web para un empresa de pinturas",
+  "DsText" : "Blog moderno sobre looks, moda y estilo",
+  "BarberText" : "Сайт компании по покраске",
+  "AboutMe": [
+    "Más sobre mí",
+    "Disfruto de construir nuevos proyectos y estudiar nuevas tecnologías.",
+    "Gran parte de mi tiempo libre lo dedico a estudiar y practicar.",
+    "Estoy abierto a descubrir cosas nuevas.",
+    "Y mi interés es encontrar un gran equipo y proyectos."
+  ],
+  "Opportunities": "Buscando nuevas oportunidades como"
 }
