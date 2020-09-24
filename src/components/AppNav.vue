@@ -79,21 +79,20 @@
       </v-toolbar-title>
       <v-spacer/>
       <v-toolbar-items class="">
-        <v-btn
-            v-if="$route.path !== '/'"
+        <g-link
+
             :to="$route.path.slice(0, 3)"
-            text
-            class="body-1"
+            class="navBtn"
         >
           {{ $t('navBar[0]') }}
-        </v-btn>
-        <v-btn
+        </g-link>
+        <g-link
             text
-            :to="contact"
-            class="body-1"
+            :to="this.$context.locale.slice(0, 2) + '/' + contact"
+            class="navBtn"
         >
           {{ $t('navBar[1]') }}
-        </v-btn>
+        </g-link>
         <!--<v-btn to="/login" text>
           <v-icon left>login</v-icon>
           login
@@ -106,25 +105,34 @@
 
 <script>
 import LocaleSwitcher from "./LocaleSwitcher";
+
 export default {
   components: {LocaleSwitcher},
   data() {
     return {
-      items: [
-        {title: 'Main.vue', link: '/', icon: 'Index.vue'},
-        {title: 'Contact', link: 'contact', icon: 'phone'},
-        {title: 'LoginOld.vue', link: 'login', icon: 'login'},
-      ],
-      contact : 'contact',
-      home:  this.$i18n.locale.toString().slice(0, 0)
+      contact: 'contact',
+      home: this.$i18n.locale.toString().slice(0, 0)
     }
   },
-  created() {
-    console.log(this.$i18n.locale.toString().slice(0, 2))
-  }
 }
 </script>
 
 <style scoped>
+.navBtn {
+  text-decoration: none;
+  color: #1a1919;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.getHover:hover {
+  font-weight: bolder;
+}
+
+.inRoute {
+  cursor: not-allowed;
+}
 
 </style>

@@ -1,5 +1,9 @@
 <template>
   <Layout class="home">
+    <v-sheet v-if="loading" width="100vh" height="100vh" class="d-flex flex-column justify-space-between align-baseline" >
+      <Loader/>
+    </v-sheet>
+    <main v-else>
     <br>
     <!--Link to projects section-->
     <v-sheet
@@ -29,6 +33,7 @@
     >
       <home-about />
     </v-lazy>/
+    </main>
   </Layout>
 </template>
 
@@ -37,8 +42,17 @@
   import HomeAbout from '@/components/home/HomeAbout'
   import HomeIntro from '@/components/home/HomeIntro'
   import HomeProjects from '@/components/home/HomeProjects'
+  import Loader from "../components/loader";
   export default {
-    components: { HomeProjects, HomeIntro, HomeAbout },
+    data() {
+      return {
+        loading: true
+      }
+    },
+    components: {Loader, HomeProjects, HomeIntro, HomeAbout },
+    mounted() {
+      setTimeout(() => this.loading = false, 500);
+    }
   }
 </script>
 
