@@ -79,38 +79,80 @@
       </v-sheet>
       <div class="bgImg">
         <h6 class="display-1 mb-6 font-weight-bold d-flex justify-center">Get in touch</h6>
-        <form
-            name="contact"
-            method="post"
+        <v-form
             v-on:submit.prevent="handleSubmit"
-            action="/success/"
-            data-netlify="true"
+            name="contact" method="POST" data-netlify="true"
             data-netlify-honeypot="bot-field"
+            ref="form"
+            v-model="valid"
+            lazy-validation
         >
-          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="form-name" value="contact"/>
           <p hidden>
             <label>
               Don’t fill this out: <input name="bot-field" />
             </label>
           </p>
-          <div class="sender-info">
-            <div>
-              <label for="name" class="label" >Your name</label>
-              <input type="text" name="name" v-model="formData.name" />
-            </div>
-            <div>
-              <label for="email">Your email</label>
-              <input type="email" name="email" v-model="formData.email" />
-            </div>
-          </div>
+          <v-text-field
+              v-model="formData.name"
+              :rules="nameRules"
+              label="Name"
+              filled
+              rounded
+          ></v-text-field>
 
-          <div class="message-wrapper">
-            <label for="message">Message</label>
-            <textarea name="message" v-model="formData.message"></textarea>
-          </div>
+          <v-text-field
+              v-model="formData.email"
+              :rules="emailRules"
+              label="E-mail"
+              required
+              filled
+              rounded
+          ></v-text-field>
 
-          <button type="submit">Submit form</button>
-        </form>
+          <v-text-field
+              v-model="formData.subject"
+              label="Subject"
+              filled
+              rounded
+          ></v-text-field>
+
+          <v-textarea
+              v-model="formData.message"
+              :rules="[v => !!v || 'Message is required']"
+              label="Message"
+              required
+              filled
+              rounded
+          ></v-textarea>
+          <div class="d-flex justify-space-around align-center flex-column flex-sm-row">
+            <v-btn
+                :disabled="!valid"
+                color="success"
+                class="mr-4 mb-4 mb-md-0"
+                type="submit"
+            >
+              Send
+            </v-btn>
+
+            <v-btn
+                color="error"
+                class="mr-4 mb-4 mb-md-0"
+                @click="reset"
+            >
+              Reset Form
+            </v-btn>
+
+            <v-btn
+                class=""
+                color="warning"
+                @click="resetValidation"
+            >
+              Reset Validation
+            </v-btn>
+            <div class="hidden" data-netlify-recaptcha="true"></div>
+          </div>
+        </v-form>
       </div>
     </v-sheet>
   </layout>
@@ -124,7 +166,8 @@ export default {
       formData: {
         name : '',
         email: '',
-        message: ''
+        message: '',
+        subject: '',
       },
       valid: true,
       name: '',
@@ -141,6 +184,15 @@ export default {
   },
 
   methods: {
+    validate() {
+      this.$refs.form.validate()
+    },
+    reset() {
+      this.$refs.form.reset()
+    },
+    resetValidation() {
+      this.$refs.form.resetValidation()
+    },
     encode(data) {
       return Object.keys(data)
           .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -149,16 +201,16 @@ export default {
     handleSubmit(e) {
       fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         body: this.encode({
           'form-name': e.target.getAttribute('name'),
           ...this.formData,
         }),
       })
-          .then(() => this.$router.push('/success'))
+          .then(() => this.$router.push('/' + this.$context.locale.slice(0, 2) + '/success'))
           .catch(error => alert(error))
     }
-  }
+  },
 }
 </script>
 

@@ -41,7 +41,7 @@ export default {
     }
   },
   created() {
-    setTimeout(() => this.$router.push('/'), 4000);
+    setTimeout(() => this.$router.push('/' + this.$context.locale.slice(0, 2) + '/'), 4000);
   },
   watch: {
 
