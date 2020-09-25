@@ -9,9 +9,9 @@
       tile
     >
       <v-card-title :class="$vuetify.breakpoint.xsOnly? 'gradiant d-flex flex-column' : 'gradiant' ">
-        <p class="subheading">
+        <span class="pa-0 d-flex justify-center">
           My social networks!
-        </p>
+        </span>
 
         <v-spacer />
         <span v-for="icon in icons">
@@ -22,7 +22,7 @@
             icon
             :href="icon.link"
           >
-            <v-icon size="24px">{{ icon.name }}</v-icon>
+            <v-btn :color="icon.color" class="text-body-1" link rounded>{{ icon.name }}</v-btn>
           </v-btn></span>
       </v-card-title>
 
@@ -38,9 +38,9 @@
     data () {
       return {
         icons: [
-          { name: 'mdi-facebook', link: 'https://www.facebook.com/profile.php?id=100004768486469' },
-          { name: 'mdi-linkedin', link: 'https://www.linkedin.com/in/caraseli-vadislav-61549b136/' },
-          { name: 'mdi-gmail', link: 'mailto:vladwebapp@gmail.com' },
+          { color: '#0D8CF0' ,name: 'f', link: 'https://www.facebook.com/profile.php?id=100004768486469' },
+          { color: '#0073B0' ,name: 'in', link: 'https://www.linkedin.com/in/caraseli-vadislav-61549b136/' },
+          { color: 'red' ,name: 'g', link: 'mailto:vladwebapp@gmail.com' },
         ],
       }
     },

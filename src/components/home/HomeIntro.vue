@@ -55,7 +55,7 @@
         outlined
         @click="$vuetify.goTo('#homeProjects')"
     >
-      <v-icon>&#8595;</v-icon>
+      <v-icon class="mr-2">&#8595;</v-icon>
       {{ $t('projectsBtn') }}
     </v-btn>
   </v-sheet>

@@ -1,9 +1,9 @@
 <template>
   <Layout class="home">
-    <v-sheet v-if="loading" width="100vh" height="100vh" class="d-flex flex-column justify-space-between align-baseline" >
+    <!--<v-sheet v-if="loading" width="100vh" height="100vh" class="d-flex flex-column justify-space-between align-baseline" >
       <Loader/>
-    </v-sheet>
-    <main v-else>
+    </v-sheet>-->
+    <main >
     <br>
     <!--Link to projects section-->
     <v-sheet
@@ -50,9 +50,9 @@
       }
     },
     components: {Loader, HomeProjects, HomeIntro, HomeAbout },
-    mounted() {
+    /*mounted() {
       setTimeout(() => this.loading = false, 500);
-    }
+    }*/
   }
 </script>
 
