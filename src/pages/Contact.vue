@@ -176,7 +176,7 @@ export default {
 form {
   background-color: #F2F2F2;
   width: 40vh;
-  height: 50vh;
+  height: 55vh;
   border-radius: 25px;
   display: flex;
   justify-content: center;
