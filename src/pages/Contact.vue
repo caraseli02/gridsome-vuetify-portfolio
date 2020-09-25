@@ -87,6 +87,13 @@
             data-netlify="true"
             data-netlify-honeypot="bot-field"
         >
+
+          <article v-if="errors.length">
+            <b>Please correct the following error(s):</b>
+            <ul>
+              <li v-for="error in errors">{{ error }}</li>
+            </ul>
+          </article>
           <input type="hidden" name="form-name" value="contact"/>
           <p hidden>
             <label>
@@ -96,20 +103,19 @@
           <div class="sender-info">
             <div class="sender-info__name">
               <label for="name" class="label">Name</label>
-              <input type="text" name="name" v-model="formData.name"/>
+              <input type="text" name="name" v-model="formData.name" required/>
             </div>
             <div class="sender-info__email">
               <label for="email">Email</label>
-              <input type="email" name="email" v-model="formData.email"/>
+              <input type="email" name="email" v-model="formData.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
             </div>
           </div>
 
           <div class="message-wrapper">
             <label for="message">Message</label>
-            <textarea name="message" v-model="formData.message"></textarea>
+            <textarea name="message" v-model="formData.message" required></textarea>
           </div>
-
-          <button type="submit" class="btn">Submit</button>
+          <button v-if="errors.length === 0" type="submit" class="btn">Submit</button>
         </form>
       </div>
     </v-sheet>
@@ -121,36 +127,16 @@ export default {
   name: "Contact",
   data() {
     return {
+      errors: [],
       formData: {
         name: '',
         email: '',
         message: '',
         subject: '',
       },
-      valid: true,
-      name: '',
-      nameRules: [
-        v => !!v || 'Name is required',
-        v => (v && v.length <= 10) || 'Name must be less than 10 characters',
-      ],
-      email: '',
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-      ],
     }
   },
-
   methods: {
-    validate() {
-      this.$refs.form.validate()
-    },
-    reset() {
-      this.$refs.form.reset()
-    },
-    resetValidation() {
-      this.$refs.form.resetValidation()
-    },
     encode(data) {
       return Object.keys(data)
           .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -185,19 +171,19 @@ form {
   padding: 5%;
 }
 
-.sender-info,  .message-wrapper {
+.sender-info, .message-wrapper {
   width: 100%;
 
 }
 
-.sender-info{
+.sender-info {
 
 }
 
-.message-wrapper{
+.message-wrapper {
 }
 
-.sender-info__name , .sender-info__email , .message-wrapper{
+.sender-info__name, .sender-info__email, .message-wrapper {
   display: flex;
   justify-content: center;
   align-items: start;
@@ -209,11 +195,12 @@ label, input {
   font-size: 1.2rem;
 }
 
-input , textarea{
+input, textarea {
   width: 100%;
   height: 50px;
   background-color: white;
 }
+
 .btn {
   background: transparent;
   width: 200px;
@@ -232,7 +219,7 @@ input , textarea{
   text-decoration: none;
 }
 
-.btn:hover{
+.btn:hover {
   background-color: #1ECD97;
   color: white;
 }
