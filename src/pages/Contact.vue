@@ -87,20 +87,20 @@
             data-netlify="true"
             data-netlify-honeypot="bot-field"
         >
-          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="form-name" value="contact"/>
           <p hidden>
             <label>
-              Don’t fill this out: <input name="bot-field" />
+              Don’t fill this out: <input name="bot-field"/>
             </label>
           </p>
           <div class="sender-info">
-            <div>
-              <label for="name" class="label" >Your name</label>
-              <input type="text" name="name" v-model="formData.name" />
+            <div class="sender-info__name">
+              <label for="name" class="label">Name</label>
+              <input type="text" name="name" v-model="formData.name"/>
             </div>
-            <div>
-              <label for="email">Your email</label>
-              <input type="email" name="email" v-model="formData.email" />
+            <div class="sender-info__email">
+              <label for="email">Email</label>
+              <input type="email" name="email" v-model="formData.email"/>
             </div>
           </div>
 
@@ -109,7 +109,7 @@
             <textarea name="message" v-model="formData.message"></textarea>
           </div>
 
-          <button type="submit">Submit form</button>
+          <button type="submit" class="btn">Submit</button>
         </form>
       </div>
     </v-sheet>
@@ -122,7 +122,7 @@ export default {
   data() {
     return {
       formData: {
-        name : '',
+        name: '',
         email: '',
         message: '',
         subject: '',
@@ -173,5 +173,67 @@ export default {
 </script>
 
 <style scoped>
+form {
+  background-color: #F2F2F2;
+  width: 40vh;
+  height: 50vh;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 5%;
+}
 
+.sender-info,  .message-wrapper {
+  width: 100%;
+
+}
+
+.sender-info{
+
+}
+
+.message-wrapper{
+}
+
+.sender-info__name , .sender-info__email , .message-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+label, input {
+  font-size: 1.2rem;
+}
+
+input , textarea{
+  width: 100%;
+  height: 50px;
+  background-color: white;
+}
+.btn {
+  background: transparent;
+  width: 200px;
+  position: relative;
+  padding: 15px;
+  color: #1ECD97;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: all 500ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  border-radius: 4px;
+  font-weight: 600;
+  overflow: hidden;
+  border: 2px solid #1ECD97;
+  text-decoration: none;
+}
+
+.btn:hover{
+  background-color: #1ECD97;
+  color: white;
+}
 </style>
