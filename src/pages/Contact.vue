@@ -80,12 +80,12 @@
       <div class="bgImg">
         <h6 class="display-1 mb-6 font-weight-bold d-flex justify-center">Get in touch</h6>
         <v-form
+            name="contact"
+            method="post"
             v-on:submit.prevent="handleSubmit"
-            name="contact" method="POST" data-netlify="true"
+            action="/success/"
+            data-netlify="true"
             data-netlify-honeypot="bot-field"
-            ref="form"
-            v-model="valid"
-            lazy-validation
         >
           <input type="hidden" name="form-name" value="contact"/>
           <p hidden>
@@ -150,7 +150,6 @@
             >
               Reset Validation
             </v-btn>
-            <div class="hidden" data-netlify-recaptcha="true"></div>
           </div>
         </v-form>
       </div>
