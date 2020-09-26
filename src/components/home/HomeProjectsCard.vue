@@ -171,12 +171,12 @@
 </template>
 
 <script>
-import gsap from 'gsap'
 
+import gsap from 'gsap'
 export default {
   data() {
     return {
-      projects: [
+      /*projects: [
         {
           title: 'Apimosa',
           img: 'apimosa2',
@@ -203,13 +203,13 @@ export default {
           text: 'This webpage is made width vue that use vuetify',
           github: 'https://github.com/caraseli02/vuetify-responsive-barbershop',
           demo: 'https://barbershopwebapp.netlify.app/#/',
-        }, /*
+        }, /!*
     {
       title: 'Apimosa', img: 'apimosa2.jpg', subtitle: 'web page for paint company',
       text: 'This webpage is made width gridsome that use vue and graphql',
       github: 'https://github.com/caraseli02/apimosavue', demo: 'http://apimosa.es'
-    }, */
-      ],
+    }, *!/
+      ],*/
     }
   },
 

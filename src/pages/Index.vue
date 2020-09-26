@@ -16,10 +16,7 @@
 
         outlined
         @click="$vuetify.goTo('#homeProjects')"
-      >
-        <v-icon>mdi-chevron-double-down</v-icon>
-        checkup my projects
-      </v-btn>
+      >{{ $t('projectsBtn') }}</v-btn>
     </v-sheet>
     <home-intro />
     <home-projects id="homeProjects" />

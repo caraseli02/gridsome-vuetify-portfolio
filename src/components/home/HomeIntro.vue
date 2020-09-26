@@ -3,14 +3,14 @@
       height="100vh"
       class="px-6 d-flex flex-column justify-space-around justify-sm-space-between pt-sm-16 pt-8 pb-sm-6 pb-md-0"
   >
-    <div class="setBorderLT order-0">
+    <div class="setBorderLT intro order-0">
       <p class="pt-4 d-flex text-right justify-end pt-4 text--primary">
         First, solve the problem.<br> Then, write the code.
       </p>
       <span class="d-flex justify-end font-italic text-body-2">" John Johnson "</span>
     </div>
     <div
-        class="setBG d-flex justify-center justify-sm-end"
+        class="setBG intro d-flex justify-center justify-sm-end"
         :class="$vuetify.breakpoint.xsOnly? 'order-1' : 'order-2 d-flex justify-center justify-sm-end'"
     >
       <picture>
@@ -35,7 +35,7 @@
       </picture>
 
     </div>
-    <div :class="$vuetify.breakpoint.xsOnly? 'order-2' : 'order-1 setWidth mt-12 pl-4'">
+    <div :class="$vuetify.breakpoint.xsOnly? 'order-2 intro' : ' intro order-1 setWidth mt-12 pl-4'">
       <h4
           class="font-weight-bold"
           :class="$vuetify.breakpoint.smAndDown? 'display-1' : 'display-2'"
@@ -44,7 +44,7 @@
         {{ $t('textIntro[1]') }}
       </h4>
       <div
-          class="text-body-1 d-none d-sm-block"
+          class="text-body-1"
           :style="$vuetify.breakpoint.xsOnly ? '' : 'width: 50%;'"
       >
         <p class="mt-2 ">
@@ -55,14 +55,6 @@
         </p>
       </div>
     </div>
-    <v-btn
-        class="setZindex order-3 d-sm-none"
-        outlined
-        @click="$vuetify.goTo('#homeProjects')"
-    >
-      <v-icon class="mr-2">&#8595;</v-icon>
-      {{ $t('projectsBtn') }}
-    </v-btn>
   </v-sheet>
 </template>
 
@@ -74,6 +66,20 @@ export default {
     return {
       myFilename: this.$vuetify.breakpoint.xsOnly ? 'profile_302.png' : 'profile_945.png',
     }
+  },
+  mounted() {
+    gsap.from('.intro', {
+      duration: 0.8,
+      delay:0.5,
+      opacity: 0,
+      scale: 0,
+      y: 200,
+      ease: 'power1',
+      stagger: {
+        from: 'start',
+        each: 0.1,
+      },
+    })
   },
   methods: {
     beforeEnter(el) {
