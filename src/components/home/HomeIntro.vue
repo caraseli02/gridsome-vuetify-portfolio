@@ -10,25 +10,30 @@
       <span class="d-flex justify-end font-italic text-body-2">" John Johnson "</span>
     </div>
     <div
-        class="setBG d-flex justify-end"
-        :class="$vuetify.breakpoint.xsOnly? 'order-1' : 'order-2 d-flex justify-end'"
+        class="setBG d-flex justify-center justify-sm-end"
+        :class="$vuetify.breakpoint.xsOnly? 'order-1' : 'order-2 d-flex justify-center justify-sm-end'"
     >
-      <g-image v-if="$vuetify.breakpoint.smAndUp"
-               src="@/assets/img/profile_945.webp"
-               fit="cover"
-               width="550"
-               height="550"
-               alt="Vlad Caraseli"
-               quality="75"
-      />
-      <g-image v-if="$vuetify.breakpoint.xsOnly"
-               src="@/assets/img/profile_945.webp"
-               fit="cover"
-               width="300"
-               height="300"
-               alt="Vlad Caraseli"
-               quality="75"
-      />
+      <picture>
+        <source srcset="@/assets/img/profile_945.webp 1x, @/assets/img/profile_945.webp 2x" type="image/webp">
+        <source srcset="@/assets/img/profile_945.jpg 1x  @/assets/img/profile_945@2x.jpg 2x" type="image/jpg">
+        <g-image v-if="$vuetify.breakpoint.smAndUp"
+                 src="@/assets/img/profile_945.jpg"
+                 fit="cover"
+                 width="550"
+                 height="550"
+                 alt="Vlad Caraseli"
+                 quality="75"
+        />
+        <g-image v-if="$vuetify.breakpoint.xsOnly"
+                 src="@/assets/img/profile_945.jpg"
+                 fit="cover"
+                 width="300"
+                 height="300"
+                 alt="Vlad Caraseli"
+                 quality="75"
+        />
+      </picture>
+
     </div>
     <div :class="$vuetify.breakpoint.xsOnly? 'order-2' : 'order-1 setWidth mt-12 pl-4'">
       <h4
