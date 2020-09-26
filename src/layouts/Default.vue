@@ -6,13 +6,6 @@
   </v-app>
 </template>
 
-<static-query>
-query {
-  metadata {
-    siteName
-  }
-}
-</static-query>
 <script>
 
   import AppNav from '@/components/AppNav'

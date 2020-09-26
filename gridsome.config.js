@@ -5,7 +5,13 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-    siteName: 'Gridsome',
+    siteName: 'K Web Portfolio',
+    siteDescription: "I build modern and fast by default web apps",
+    siteUrl: "https://caraseli.com",
+    icon: {
+        favicon: "./src/favicon.png", // 96x96
+        touchicon: "./src/favicon.png" // 180x180
+    },
     plugins: [
         {
             use: "gridsome-plugin-i18n",
