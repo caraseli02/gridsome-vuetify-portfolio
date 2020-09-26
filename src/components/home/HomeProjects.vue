@@ -1,6 +1,5 @@
 <template>
   <v-lazy
-
     v-model="isActive"
     :options="{
       threshold: .5
