@@ -7,7 +7,7 @@
       <v-toolbar-title>
         <v-btn
             icon
-            to="/"
+            :to="$route.path.slice(0, 3)"
         >
           <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -82,14 +82,14 @@
         <g-link
 
             :to="$route.path.slice(0, 3)"
-            class="navBtn"
+            :class="this.$route.path.includes('contact') ? 'navBtn' : 'navBtn inRoute'"
         >
           {{ $t('navBar[0]') }}
         </g-link>
         <g-link
             text
             :to="this.$context.locale.slice(0, 2) + '/' + contact"
-            class="navBtn"
+            :class="!this.$route.path.includes('contact') ? 'navBtn' : 'navBtn inRoute'"
         >
           {{ $t('navBar[1]') }}
         </g-link>
@@ -114,6 +114,13 @@ export default {
       home: this.$i18n.locale.toString().slice(0, 0)
     }
   },
+  created() {
+    if(this.$route.path.includes('contact')){
+      console.log('include')
+    }else{
+      console.log(' no include')
+    }
+  }
 }
 </script>
 
@@ -133,6 +140,8 @@ export default {
 
 .inRoute {
   cursor: not-allowed;
+  background-color: rgba(0 , 0 , 0, 0.1 );
+  padding: 0.5rem;
 }
 
 </style>
