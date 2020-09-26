@@ -18,6 +18,7 @@
         height="200px"
         contain
         quality="75"
+        alt="work thinking"
       />
       <v-btn
         color="primary"
@@ -42,6 +43,7 @@
         height="200px"
         contain
         quality="75"
+        alt="xd design"
       />
       <v-btn
         color="primary"
@@ -66,6 +68,7 @@
         height="200px"
         contain
         quality="75"
+        alt="web development"
       />
       <v-btn
         color="primary"
@@ -86,7 +89,7 @@
         height="200px"
         contain
         quality="75"
-
+        alt="web deploy"
       />
       <v-btn
         color="primary"

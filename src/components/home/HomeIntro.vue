@@ -35,14 +35,14 @@
           class="font-weight-bold"
           :class="$vuetify.breakpoint.smAndDown? 'display-1' : 'display-2'"
       >
-        <span class="Color1">{{ $t('textIntro[0]') }}</span>
+        <span class="Color1">{{ $t('textIntro[0]')}}</span>
         {{ $t('textIntro[1]') }}
       </h4>
       <div
           class="text-body-1 d-none d-sm-block"
           :style="$vuetify.breakpoint.xsOnly ? '' : 'width: 50%;'"
       >
-        <p class="mt-2">
+        <p class="mt-2 ">
           {{ $t('textIntro[2]') }}
         </p>
         <p>
@@ -93,9 +93,6 @@ export default {
 
 <style scoped>
 
-.Color1 {
-  color: #4CC78D;
-}
 
 .setBorderRB {
   border-bottom: 2px solid #19C0AE;
@@ -118,6 +115,9 @@ export default {
     background-image: url("../../assets/fondoXL.svg");
     background-size: contain;
   }
+}
+p{
+  font-size: 1.2rem;
 }
 
 </style>

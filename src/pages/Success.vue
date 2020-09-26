@@ -37,7 +37,7 @@ export default {
   name: "Success",
   data() {
     return {
-      timerCount: 4
+      timerCount: 2
     }
   },
   created() {
