@@ -16,13 +16,21 @@
     >
       <picture class="d-flex justify-end">
         <source srcset="@/assets/img/profile_945.webp 1x, @/assets/img/profile_945.webp 2x" type="image/webp">
-        <source srcset="@/assets/img/profile_945.jpg 1x  @/assets/img/profile_945@2x.jpg 2x" type="image/jpg">
+        <source srcset="@/assets/img/profile_945.png 1x  @/assets/img/profile_945.png 2x" type="image/png">
 
-        <g-image v-if="$vuetify.breakpoint.smAndUp"
-                 src="@/assets/img/profile_945.jpg"
+        <g-image v-if="$vuetify.breakpoint.mdAndUp"
+                 src="@/assets/img/profile_945.png"
+                 fit="contain"
+                 width="850"
+                 height="750"
+                 alt="Vlad Caraseli"
+                 quality="75"
+        />
+        <g-image v-if="$vuetify.breakpoint.smOnly"
+                 src="@/assets/img/profile_945.png"
                  fit="contain"
                  width="730"
-                 height="850"
+                 height="650"
                  alt="Vlad Caraseli"
                  quality="75"
         />
