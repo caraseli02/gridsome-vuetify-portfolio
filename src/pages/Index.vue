@@ -9,11 +9,10 @@
     <v-sheet
       width="100vw"
       height="100vh"
-      class="d-none align-self-end d-sm-flex justify-center align-end align-sm-center setPosition"
+      class="d-none align-self-end d-sm-flex justify-center align-end align-sm-end setPosition"
     >
       <v-btn
-        class="setZindex"
-
+        class="setZindex mb-16 gradient border-0 black--text"
         outlined
         @click="$vuetify.goTo('#homeProjects')"
       >{{ $t('projectsBtn') }}</v-btn>

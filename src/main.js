@@ -14,7 +14,7 @@ export default function (Vue, { appOptions, head }) {
             property: 'og:title',
             content: "I’m programmer, developer and designer. My passion is to build modern and fast by default web apps."
         },
-        {property: 'og:site_name', content: 'apimosa'},
+        {property: 'og:site_name', content: 'Wep Portfolio Vlad'},
         {property: 'og:url', content: 'caraseli.com'},
         {property: 'og:type', content: 'website'},
         {
@@ -53,7 +53,16 @@ export default function (Vue, { appOptions, head }) {
         href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900',
     });*/
 
-    const opts = {}; // opts includes, vuetify themes, icons, etc.
+    const opts = {
+        theme: {
+            light: {
+                primary: '#FFFFFF',
+            },
+            dark: {
+                primary: '#000000',
+            },
+        },
+    }; // opts includes, vuetify themes, icons, etc.
     Vue.use(Vuetify);
     appOptions.vuetify = new Vuetify(opts);
 

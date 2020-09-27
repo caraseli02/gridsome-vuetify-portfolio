@@ -78,6 +78,18 @@
         </v-btn>
       </v-toolbar-title>
       <v-spacer/>
+      <div class="themeIcon mb-2 fixIconWidth mr-5 d-flex justify-center align-center"
+           :class="this.$vuetify.theme.dark? '' : 'yellow--text font-weight-bold'"
+      >&#9788;</div>
+      <v-switch class="mt-6"
+                v-model="$vuetify.theme.dark"
+                inset
+                persistent-hint
+                :color=" this.$vuetify.theme.dark ? 'black' : 'white'"
+      >Dark</v-switch>
+      <div class="themeIcon  mr-3"
+           :class="this.$vuetify.theme.dark? 'black--text' : 'white--text'"
+      >&#9790;</div>
       <v-toolbar-items class="">
         <g-link
 
@@ -113,13 +125,6 @@ export default {
       contact: 'contact',
       home: this.$i18n.locale.toString().slice(0, 0)
     }
-  },
-  created() {
-    if(this.$route.path.includes('contact')){
-      console.log('include')
-    }else{
-      console.log(' no include')
-    }
   }
 }
 </script>
@@ -140,8 +145,16 @@ export default {
 
 .inRoute {
   cursor: not-allowed;
-  background-color: rgba(0 , 0 , 0, 0.1 );
+  background-color: rgba(0, 0, 0, 0.1);
   padding: 0.5rem;
+}
+
+.themeIcon{
+  font-size: 2rem;
+}
+
+.fixIconWidth{
+  font-size: 2.5rem;
 }
 
 </style>
