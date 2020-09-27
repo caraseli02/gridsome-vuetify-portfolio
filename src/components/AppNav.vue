@@ -84,6 +84,7 @@
                 persistent-hint
                 :color=" this.$vuetify.theme.dark ? 'black' : 'white'"
       ></v-switch>
+      <LocaleSwitcher/>
       <div class="burger-container" @click="overlay = !overlay">
         <div id="burger">
           <div class="bar topBar"></div>
@@ -113,7 +114,6 @@
           >
             {{ $t('navBar[1]') }}
           </g-link>
-          <LocaleSwitcher/>
         </v-toolbar-items>
       </v-overlay>
     </v-app-bar>

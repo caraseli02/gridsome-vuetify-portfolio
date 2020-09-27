@@ -12,7 +12,7 @@
           cols="12"
           md="6"
         >
-          <h4 class="d-flex justify-center items-center mb-4">
+          <h4 class="d-flex justify-center items-center mb-4 display-1">
             How I Work:
           </h4>
           <HomeStepper/>
@@ -23,18 +23,18 @@
           offset="1"
           class="d-flex justify-center flex-column"
         >
-          <h4 class="mb-4">
+          <h3 class="">
             {{ $t('AboutMe[0]') }}
-          </h4>
+          </h3>
           <br>
           <p>
             {{ $t('AboutMe[1]') }}<br> {{ $t('AboutMe[2]') }}
           </p>
           <p>{{ $t('AboutMe[3]') }} <br>{{ $t('AboutMe[4]') }}</p>
           <br>
-          <h4 class="my-4">
+          <h3 class="my-4">
             {{ $t('Opportunities') }}
-          </h4>
+          </h3>
           <p>Fullstack developer with focus on<br> Python(Flask, FastAPI) + Vue</p>
           <p>Fullstack developer Python</p>
           <p>FrontEnd developer Vue</p>
@@ -50,15 +50,6 @@
 
   export default {
     components: { HomeStepper },
-    data () {
-      return {
-        knowledges: [
-          ['Design stage:', 'XD', 'Unsplash', 'Pexels'],
-          ['Development stage:', 'Pycharm', 'Webstorm', 'VSCode'],
-          ['Launch stage:', 'Heroku', 'Netlify', 'Digitalocean'],
-        ],
-      }
-    },
 
     methods: {
       beforeEnter (el) {
@@ -86,6 +77,16 @@ ul > li:first-child {
 
 li {
   list-style-type: none;
+}
+
+@media (min-width: 760px) {
+  h3{
+    font-size: 2rem;
+  }
+  p{
+    font-size: 1.3rem;
+    width: 80%;
+  }
 }
 
 </style>

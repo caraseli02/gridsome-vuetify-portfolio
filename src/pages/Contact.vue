@@ -102,17 +102,17 @@
           </p>
           <div class="sender-info">
             <div class="sender-info__name">
-              <label for="name" class="label">Name</label>
+              <label for="name" class="label teal--text">Name</label>
               <input type="text" name="name" v-model="formData.name" required/>
             </div>
             <div class="sender-info__email">
-              <label for="email">Email</label>
+              <label for="email" class="teal--text">Email</label>
               <input type="email" name="email" v-model="formData.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
             </div>
           </div>
 
           <div class="message-wrapper">
-            <label for="message">Message</label>
+            <label for="message" class="teal--text">Message</label>
             <textarea name="message" v-model="formData.message" required></textarea>
           </div>
           <button v-if="errors.length === 0" type="submit" class="btn">Submit</button>

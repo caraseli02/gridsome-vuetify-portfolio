@@ -11,22 +11,20 @@
       <span class="d-flex justify-end font-italic text-body-2">" John Johnson "</span>
     </div>
     <div
-        class="intro flex-xl-grow-1 self-end align-self-end d-flex justify-center justify-sm-end"
+        class="intro flex-xl-grow-1 self-end align-self-end d-flex justify-space-around justify-sm-end"
         :class="$vuetify.breakpoint.xsOnly? 'order-1' : 'order-2'"
     >
       <picture class="d-flex justify-end">
         <source srcset="@/assets/img/profile_945.webp 1x, @/assets/img/profile_945.webp 2x" type="image/webp">
         <source srcset="@/assets/img/profile_945.png 1x  @/assets/img/profile_945.png 2x" type="image/png">
 
-        <g-image v-if="$vuetify.breakpoint.mdAndUp"
+        <g-image v-if="$vuetify.breakpoint.xlOnly"
                  src="@/assets/img/profile_945.png"
                  fit="contain"
-                 width="850"
-                 height="750"
                  alt="Vlad Caraseli"
                  quality="75"
         />
-        <g-image v-if="$vuetify.breakpoint.smOnly"
+        <g-image v-if="$vuetify.breakpoint.smOnly || $vuetify.breakpoint.mdOnly || $vuetify.breakpoint.lgOnly"
                  src="@/assets/img/profile_945.png"
                  fit="contain"
                  width="730"
@@ -48,7 +46,7 @@
     <div :class="$vuetify.breakpoint.xsOnly? 'order-2 intro ' : 'flex-xl-grow-1  align-center align-self-end mb-16 intro pl-4'">
       <h4
           class="font-weight-bold"
-          :class="$vuetify.breakpoint.smAndDown? 'display-1' : 'display-3'"
+          :class="$vuetify.breakpoint.smAndDown? 'display-1' : 'display-2'"
       >
         <span class="Color1">{{ $t('textIntro[0]')}}</span>
         {{ $t('textIntro[1]') }}
@@ -138,7 +136,7 @@ export default {
   .setBGLight {
     background-image: url("../../assets/fondoXL.svg");
     background-size: contain;
-    background-position: 50% 20%;
+    background-position: 50% 30%;
   }
   .setPosition{
     position: absolute;
@@ -149,9 +147,18 @@ export default {
   }
 
   .introSubtitle{
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
   }
+}
+
+@media (min-width: 1424px) {
+
+  .introSubtitle {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
 }
 
 
