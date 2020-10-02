@@ -1,17 +1,13 @@
-FROM node:12-alpine
+FROM node:12-alpine AS builder
 
 # Install build tools
-# Needed by npm install
 RUN apk update && apk upgrade
-RUN apk --no-cache add --virtual util-linux native-deps git\
+RUN apk --no-cache add --virtual native-deps git\
   g++ gcc libgcc libstdc++ linux-headers make python
 
-# Manually change npm's default directory
-# to avoid permission errors
-# https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally
-ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 
 # Install Gridsome globally
+ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 USER node
 RUN npm i -g gridsome
 
@@ -22,16 +18,15 @@ USER node
 RUN npm cache clean --force
 RUN npm clean-install
 
+FROM node:12-alpine
 # Remove the project files
 # but keep the node modules
-RUN cd .. && \
-    mv build/node_modules ./ && \
-    rm -rf build && \
-    mkdir build && \
-    mv node_modules build/
-
-
 WORKDIR /home/node
+USER node
+RUN mkdir build .npm-global
+COPY --from=builder /home/node/build/node_modules build/node_modules
+COPY --from=builder /home/node/.npm-global .npm-global
+
 # Get the source code without node_modules
 # Then build the site
 CMD cp -r app temp && \
