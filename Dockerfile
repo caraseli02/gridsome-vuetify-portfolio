@@ -1,36 +1,54 @@
-FROM node:12-alpine AS builder
+# simple gridsome-cli docker installation
+# docker build -t gridsome-cli
+# or specify gridsome-cli version
+# build --build-arg GRIDSOME_CLI_VERSION= .
 
-# Install build tools
-RUN apk update && apk upgrade
-RUN apk --no-cache add --virtual native-deps git\
-  g++ gcc libgcc libstdc++ linux-headers make python
+FROM node:lts-slim
 
 
-# Install Gridsome globally
-ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
-USER node
-RUN npm i -g gridsome
+LABEL maintainer="development@crowdcode.io" \
+      description="Simple gridsome-cli docker container"
 
-# Install the application
-COPY --chown=node:node ./ /home/node/build/
-WORKDIR /home/node/build
-USER node
-RUN npm cache clean --force
-RUN npm clean-install
+ARG VUE_CLI_VERSION=4.3.1
+ARG GRIDSOME_CLI_VERSION=0.7.4
+ENV GRIDSOME_CLI_VERSION=${GRIDSOME_CLI_VERSION}
+ENV VUE_CLI_VERSION ${VUE_CLI_VERSION}
+ARG USER_ID=1000
+ARG USER_HOME_DIR="/build"
+ARG WORKSPACE_DIR="/workspace"
 
-FROM node:12-alpine
-# Remove the project files
-# but keep the node modules
-WORKDIR /home/node
-USER node
-RUN mkdir build .npm-global
-COPY --from=builder /home/node/build/node_modules build/node_modules
-COPY --from=builder /home/node/.npm-global .npm-global
+ENV NPM_CONFIG_LOGLEVEL info
+ENV HOME "$USER_HOME_DIR"
 
-# Get the source code without node_modules
-# Then build the site
-CMD cp -r app temp && \
-    rm -rf temp/node_modules && \
-    cp -r temp/* build/ && \
-    cd build && \
-    ~/.npm-global/bin/gridsome build
+RUN apt-get update && apt-get install -qqy --no-install-recommends \
+    ca-certificates \
+    dumb-init \
+    git \
+    build-essential \
+    python \
+    procps \
+    rsync \
+    curl \
+    zip \
+    openssh-client \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN set -xe \
+    && mkdir -p $USER_HOME_DIR \
+    && chown $USER_ID $USER_HOME_DIR \
+    && chmod a+rw $USER_HOME_DIR \
+    && chown -R node /usr/local/lib /usr/local/include /usr/local/share /usr/local/bin \
+    && (cd "$USER_HOME_DIR"; su node -c "npm install -g @vue/cli@${VUE_CLI_VERSION}; npm install -g yarn; chmod +x /usr/local/bin/yarn; npm cache clean --force") \
+    && (cd "$USER_HOME_DIR"; su node -c "npm install -g @gridsome/cli;")
+
+
+# not declared to avoid anonymous volume leak
+VOLUME "$USER_HOME_DIR/.cache/yarn"
+VOLUME "$APP_DIR/"
+WORKDIR $WORKSPACE_DIR
+
+EXPOSE 8080
+
+ENTRYPOINT ["/usr/bin/dumb-init", "--"]
+
+USER ${USER_ID}

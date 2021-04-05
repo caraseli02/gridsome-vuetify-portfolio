@@ -1,33 +1,66 @@
 <template>
   <article class="setOrizontalScroll mx-4 justify-lg-space-around items-lg-center">
-    <!--Dynamic Option problem with translation and srcset-->
-    <!--<v-card
-        v-for="project in projects"
-        :key="project.subtitle"
+     <!-- Attendence App -->
+    <v-card
         class="ml-2 mb-4 card pa-2"
         max-width="344"
     >
       <picture>
-        <source :srcset="`@/assets/img/apimosa2.webp 1x, @/assets/img/apimosa2.webp 2x`" type="image/webp">
-        <source :srcset="`@/assets/img/apimosa2.jpg 1x,  @/assets/img/apimosa2.jpg 2x`" type="image/jpg">
+        <source srcset="@/assets/img/attendApp.webp 1x, @/assets/img/attendApp.webp 2x" type="image/webp">
+        <source srcset="@/assets/img/attendApp.jpg 1x,  @/assets/img/attendApp.jpg 2x" type="image/jpg">
         <g-image
-            :src="require(`!!assets-loader!@img/apimosa2.jpg`)"
-            :alt="project.alt"
+            src="@/assets/img/attendApp.jpg"
+            alt="Attendence App"
             quality="75"
             class="imgSize"
         />
       </picture>
       <v-card-title>
-        {{ project.title }}
+        Attendence App
       </v-card-title>
 
-      &lt;!&ndash;v-card-subtitle>
-        {{ project.subtitle }}
-      </v-card-subtitle>&ndash;&gt;
+      <v-card-subtitle>
+        App for Employee Attendance
+      </v-card-subtitle>
 
       <v-card-actions>
         <v-btn
-            :href="project.github"
+            color="teal"
+            link
+            href="https://apimosa-930ed.web.app/"
+        >
+          Demo
+        </v-btn>
+
+        <v-spacer/>
+      </v-card-actions>
+    </v-card>
+    <!-- Javaloyas -->
+    <v-card
+        class="ml-2 mb-4 card pa-2"
+        max-width="344"
+    >
+      <picture>
+        <source srcset="@/assets/img/javaloyas.webp 1x, @/assets/img/javaloyas.webp 2x" type="image/webp">
+        <source srcset="@/assets/img/javaloyas.jpg 1x,  @/assets/img/javaloyas.jpg 2x" type="image/jpg">
+        <g-image
+            src="@/assets/img/javaloyas.jpg"
+            alt="Apimosa Paint service"
+            quality="75"
+            class="imgSize"
+        />
+      </picture>
+      <v-card-title>
+        Los Javaloyas
+      </v-card-title>
+
+      <v-card-subtitle>
+        {{ $t('javaloyasText') }}
+      </v-card-subtitle>
+
+      <v-card-actions>
+        <v-btn
+            href="https://github.com/caraseli02/Javaloyas_Gridsome"
             link
         >
           Github
@@ -36,14 +69,15 @@
         <v-btn
             color="teal"
             link
-            :href="project.demo"
+            href="https://losjavaloyas.com/"
         >
           Demo
         </v-btn>
 
         <v-spacer/>
       </v-card-actions>
-    </v-card>-->
+    </v-card>
+    <!-- Apimosa -->
     <v-card
         class="ml-2 mb-4 card pa-2"
         max-width="344"
@@ -85,6 +119,7 @@
         <v-spacer/>
       </v-card-actions>
     </v-card>
+    <!-- DailyStyle -->
     <v-card
         class="ml-2 mb-4 card pa-2"
         max-width="344"
@@ -126,47 +161,7 @@
         <v-spacer/>
       </v-card-actions>
     </v-card>
-    <v-card
-        class="ml-2 mb-4 card pa-2"
-        max-width="344"
-    >
-      <picture>
-        <source srcset="@/assets/img/barber.webp 1x, @/assets/img/barber.webp 2x" type="image/webp">
-        <source srcset="@/assets/img/barber.jpg 1x,  @/assets/img/barber.jpg 2x" type="image/jpg">
-        <g-image
-            src="@/assets/img/barber.jpg"
-            alt="Vuetify Barber Shop"
-            quality="75"
-            class="imgSize"
-        />
-      </picture>
-      <v-card-title>
-        Vuetify Barber Shop
-      </v-card-title>
 
-      <v-card-subtitle>
-        {{ $t('BarberText') }}
-      </v-card-subtitle>
-
-      <v-card-actions>
-        <v-btn
-            href="https://github.com/caraseli02/vuetify-responsive-barbershop"
-            link
-        >
-          Github
-        </v-btn>
-
-        <v-btn
-            color="teal"
-            link
-            href="https://barbershopwebapp.netlify.app/#/"
-        >
-          Demo
-        </v-btn>
-
-        <v-spacer/>
-      </v-card-actions>
-    </v-card>
   </article>
 </template>
 

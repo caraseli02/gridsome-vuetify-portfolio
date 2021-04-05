@@ -20,12 +20,7 @@
 </script>
 
 <style>
-h1, h2, h3, h4, h5, h6, strong {
-  font-family: 'Russo One', sans-serif;
-  font-weight: 500;
-}
-
-p, li, span, label, input, textarea {
+* {
   font-family: 'Roboto Mono', monospace;
 }
 
