@@ -95,20 +95,6 @@ export default {
         : "profile_945.png",
     };
   },
-  mounted() {
-    gsap.from(".intro", {
-      duration: 0.8,
-
-      opacity: 0,
-      scale: 0,
-      y: 200,
-      ease: "power1",
-      stagger: {
-        from: "start",
-        each: 0.2,
-      },
-    });
-  },
   methods: {
     getImgUrl() {
       return require("!!assets-loader!@/assets/img/" + this.myFilename);
